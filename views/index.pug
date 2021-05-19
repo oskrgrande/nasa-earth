@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+    title NASA
+    script(src="./js/index.js")
+    script(src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js")
+    link(href="./styles/style.css", rel="stylesheet")
+    link(href="./styles/index.css", rel="stylesheet")
+  body
+    - var clsDivMain = ['min-h-screen', 'h-100', 'w-100']
+    section(class=clsDivMain, x-data="main()", x-init="permited()")
+      div(id="main")
+        div(class="container mx-auto py-20 flex flex-col md:flex-row items-center ")
+            form(action='/fetch', method='POST')
+              div(class="w-full")
+                h1(class="text-5xl md:text-7xl font-bold p-2 text-white tracking-loose") API NASA EARTH
+              div(class="w-full")
+                div(class="pb-6 md:pb-0 flex flex-col")
+                  label(for="data", class="input-label text-white text-base font-light mb-2") Enter Latitude , Longitude 
+                div 
+                  label(class="input-field inline-flex items-baseline border-none rounded-md shadow-md bg-gray-300 p-4") 
+                    div(class="flex-1 leading-none")
+                      input(x-on:keypress="key(event)",x-on:keyup="permited(event)",x-model="lat",type="text", name="lat", class="placeholder-gray w-full p-2 no-outline bg-gray-300 text-blue-800",placeholder="Latitude", )
+                    span(class="flex-none mx-2 text-dusty-blue-darker select-none leading-none") ,
+                    div(class="flex-1 leading-none")
+                      input(x-on:keypress="key(event)",x-on:keyup="permited(event)",x-model="lon",type="text", name="lon", class="placeholder-gray w-full p-2 no-outline bg-gray-300 text-blue-800",placeholder="Longitude", )
+              div(class="flex mt-8 flex-col md:flex-row md:justify-between")
+                p(class="w-full md:w-2/3 text-gray-400") To make sure you get a result, enter in the text field a longitude and latitude separated by the comma sign (,) and then click to get the result.
+                div(class="w-44 pt-6 md:pt-0")
+                  button(x-bind:disabled="on",class="cursor-pointer justify-center text-center px-10 py-3 flex items-center bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg  border border-yellow-300 hover:border-transparent") Explore now.

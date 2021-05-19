@@ -1,0 +1,28 @@
+{
+  "name": "nasa-rsm",
+  "version": "1.0.0",
+  "description": "Web page application that allows user to look at aerial photography of any location on Earth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/style.css",
+    "dev": "nodemon index.js"
+  },
+  "author": "Oscar Grande (oskrgrande@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "mathjs": "^9.4.0",
+    "node-fetch": "^2.6.1",
+    "postcss": "^8.1.2",
+    "postcss-cli": "^8.1.0",
+    "pug": "^3.0.0",
+    "tailwindcss": "^1.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
